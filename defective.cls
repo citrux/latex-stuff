@@ -1,4 +1,4 @@
-\NeedsTeXFormat{LaTeX2e}[1996/06/01]
+\NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{defective}[2015/01/13 v0.1.2]
 
 %% размеры шрифтов (14 pt у основного)
@@ -53,4 +53,40 @@
 
 % стиль колонтитулов
 \pagestyle{plain}
+
+
+
+\newcounter{section}
+\newcounter{subsection}[section]
+\newcounter{subsubsection}[subsection]
+\renewcommand\thesection{\@arabic\c@section}
+\renewcommand\thesubsection{\thesection.\@arabic\c@subsection}
+\renewcommand\thesubsubsection{\thesubsection.\@arabic\c@subsubsection}
+
+%% \startsection{<name>}{<level>}{<indent>}
+%% {<beforeskip>}{<afterskip>}{<style>}*[<altheading>]{<heading>}
+\newcommand\section{
+    \@startsection {section}{0}{\z@}{.5cm}{.5cm}
+    {\normalfont\normalsize\bfseries\center\MakeUppercase}
+}
+\newcommand\subsection{
+    \@startsection{subsection}{1}{\z@}{.5cm}{.5cm}
+    {\normalfont\normalsize\bfseries}
+}
+\newcommand\subsubsection{
+    \@startsection{subsubsection}{2}{\z@}{.5cm}{.5cm}
+    {\normalfont\normalsize\bfseries}
+}
+
+%% \newenvironment{name}[num]{before}{after}
+\newenvironment{titlepage}{
+    \newpage
+    \thispagestyle{empty}
+    \setcounter{page}\@ne
+}
+{
+    \newpage
+    \setcounter{page}\@ne
+}
+
 \endinput
