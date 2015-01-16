@@ -88,15 +88,6 @@
     \newpage
     \setcounter{page}\@ne
 }
-
-\setlength\leftmargini{2.5em}
-\leftmargin\leftmargini
-\setlength\leftmarginii{2.2em}
-\setlength\leftmarginiii{1.87em}
-\setlength\leftmarginiv{1.7em}
-\setlength\labelsep{.5em}
-\setlength\labelwidth{\leftmargini}
-\addtolength\labelwidth{-\labelsep}
 \renewcommand\theenumi{\@arabic\c@enumi}
 \renewcommand\theenumii{\@alph\c@enumii}
 \renewcommand\theenumiii{\@roman\c@enumiii}
@@ -113,32 +104,26 @@
 \newcommand\labelitemiii{\textasteriskcentered}
 \newcommand\labelitemiv{\textperiodcentered}
 
-\def\@listi{\leftmargin\leftmargini
-            \parsep 6\p@  \@plus2.5\p@ \@minus\p@
-            \topsep 12\p@ \@plus5\p@   \@minus7\p@
-            \itemsep6\p@  \@plus2.5\p@ \@minus\p@}
-\let\@listI\@listi
-\@listi
-\def\@listii {\leftmargin\leftmarginii
-              \labelwidth\leftmarginii
-              \advance\labelwidth-\labelsep
-              \topsep    6\p@   \@plus3\p@ \@minus\p@
-              \parsep    3\p@ \@plus\p@    \@minus\p@
-              \itemsep   \parsep}
-\def\@listiii{\leftmargin\leftmarginiii
-              \labelwidth\leftmarginiii
-              \advance\labelwidth-\labelsep
-              \topsep    3\p@\@plus\p@\@minus\p@
-              \parsep    \z@
-              \partopsep \p@ \@plus\z@ \@minus\p@
-              \itemsep   \topsep}
-\def\@listiv {\leftmargin\leftmarginiv
-              \labelwidth\leftmarginiv
+\def\@listi{\leftmargin 2.5em
+            \labelsep .5em
+            \labelwidth\leftmargin
+            \advance\labelwidth-\labelsep
+            \parsep 7.5\p@
+            \topsep 10\p@
+            \itemsep 7.5\p@}
+\def\@listii{\leftmargin 2.2em
+             \labelwidth\leftmargin
+             \advance\labelwidth-\labelsep}
+\def\@listiii{\leftmargin 1.9em
+              \labelwidth\leftmargin
               \advance\labelwidth-\labelsep}
-\def\@listv  {\leftmargin\leftmarginv
-              \labelwidth\leftmarginv
+\def\@listiv {\leftmargin 1.7em
+              \labelwidth\leftmargin
               \advance\labelwidth-\labelsep}
-\def\@listvi {\leftmargin\leftmarginvi
-              \labelwidth\leftmarginvi
+\def\@listv  {\leftmargin 1.6em
+              \labelwidth\leftmargin
+              \advance\labelwidth-\labelsep}
+\def\@listvi {\leftmargin 1.5em
+              \labelwidth\leftmargin
               \advance\labelwidth-\labelsep}
 \endinput
