@@ -55,7 +55,7 @@
 \pagestyle{plain}
 
 
-
+\setcounter{secnumdepth}{3}
 \newcounter{section}
 \newcounter{subsection}[section]
 \newcounter{subsubsection}[subsection]
@@ -66,16 +66,16 @@
 %% \startsection{<name>}{<level>}{<indent>}
 %% {<beforeskip>}{<afterskip>}{<style>}*[<altheading>]{<heading>}
 \newcommand\section{
-    \@startsection {section}{0}{\z@}{.5cm}{.5cm}
-    {\normalfont\normalsize\bfseries\center\MakeUppercase}
+    \@startsection{section}{1}{\z@}{.5cm}{.5cm}
+    {\normalfont\normalsize\bfseries\center}
 }
 \newcommand\subsection{
-    \@startsection{subsection}{1}{\z@}{.5cm}{.5cm}
-    {\normalfont\normalsize\bfseries}
+    \@startsection{subsection}{2}{\z@}{.5cm}{.5cm}
+    {\normalfont\normalsize\bfseries\center}
 }
 \newcommand\subsubsection{
-    \@startsection{subsubsection}{2}{\z@}{.5cm}{.5cm}
-    {\normalfont\normalsize\bfseries}
+    \@startsection{subsubsection}{3}{\z@}{.5cm}{.5cm}
+    {\normalfont\normalsize\bfseries\center}
 }
 
 %% \newenvironment{name}[num]{before}{after}
