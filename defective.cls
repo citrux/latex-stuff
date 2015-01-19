@@ -54,7 +54,6 @@
 % стиль колонтитулов
 \pagestyle{plain}
 
-
 \setcounter{secnumdepth}{3}
 \newcounter{section}
 \newcounter{subsection}[section]
@@ -67,7 +66,7 @@
 %% {<beforeskip>}{<afterskip>}{<style>}*[<altheading>]{<heading>}
 \newcommand\section{
     \@startsection{section}{1}{\z@}{.5cm}{.5cm}
-    {\normalfont\normalsize\bfseries\center}
+    {\normalfont\normalsize\bfseries\center\MakeUppercase}
 }
 \newcommand\subsection{
     \@startsection{subsection}{2}{\z@}{.5cm}{.5cm}
@@ -89,16 +88,16 @@
     \setcounter{page}\@ne
 }
 \renewcommand\theenumi{\@arabic\c@enumi}
-\renewcommand\theenumii{\@alph\c@enumii}
-\renewcommand\theenumiii{\@roman\c@enumiii}
-\renewcommand\theenumiv{\@Alph\c@enumiv}
+\renewcommand\theenumii{\@arabic\c@enumii}
+\renewcommand\theenumiii{\@arabic\c@enumiii}
+\renewcommand\theenumiv{\@arabic\c@enumiv}
 \newcommand\labelenumi{\theenumi.}
-\newcommand\labelenumii{(\theenumii)}
-\newcommand\labelenumiii{\theenumiii.}
-\newcommand\labelenumiv{\theenumiv.}
+\newcommand\labelenumii{\theenumi.\theenumii.}
+\newcommand\labelenumiii{\theenumi.\theenumii.\theenumiii.}
+\newcommand\labelenumiv{\theenumi.\theenumii.\theenumiii.\theenumiv.}
 \renewcommand\p@enumii{\theenumi}
-\renewcommand\p@enumiii{\theenumi(\theenumii)}
-\renewcommand\p@enumiv{\p@enumiii\theenumiii}
+\renewcommand\p@enumiii{\theenumi.\theenumii}
+\renewcommand\p@enumiv{\p@enumiii.\theenumiii}
 \newcommand\labelitemi{\textbullet}
 \newcommand\labelitemii{\normalfont\bfseries \textendash}
 \newcommand\labelitemiii{\textasteriskcentered}
