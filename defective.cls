@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{defective}[2015/01/13 v0.1.2]
+\ProvidesClass{defective}[2015/05/09 v0.1.3]
 
 %% размеры шрифтов (14 pt у основного)
 %% http://en.wikibooks.org/wiki/LaTeX/Fonts#Sizing_text
@@ -125,4 +125,54 @@
 \def\@listvi {\leftmargin 1.5em
               \labelwidth\leftmargin
               \advance\labelwidth-\labelsep}
+
+% figure
+\newcounter{figure}
+\renewcommand \thefigure {\@arabic\c@figure}
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{\figurename\nobreakspace\thefigure}
+\newenvironment{figure}
+               {\@float{figure}}
+               {\end@float}
+\newenvironment{figure*}
+               {\@dblfloat{figure}}
+               {\end@dblfloat}
+
+% table
+\newcounter{table}
+\renewcommand\thetable{\@arabic\c@table}
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+\def\fnum@table{\tablename\nobreakspace\thetable}
+\newenvironment{table}
+               {\@float{table}}
+               {\end@float}
+\newenvironment{table*}
+               {\@dblfloat{table}}
+               {\end@dblfloat}
+
+% captions
+\newlength\abovecaptionskip
+\newlength\belowcaptionskip
+\newcommand\captiondelim{~---}
+\setlength\abovecaptionskip{10\p@}
+\setlength\belowcaptionskip{0\p@}
+\long\def\@makecaption#1#2{%
+  \vskip\abovecaptionskip
+  \sbox\@tempboxa{#1\captiondelim #2}%
+  \ifdim \wd\@tempboxa >\hsize
+    #1\captiondelim #2\par
+  \else
+    \global \@minipagefalse
+    \hb@xt@\hsize{\hfil\box\@tempboxa\hfil}%
+  \fi
+  \vskip\belowcaptionskip}
+
+\newcounter{task}
+\renewcommand\thetask{\@arabic\c@task}
+\newenvironment{task}[1][]{\refstepcounter{task}\par\medskip\noindent%
+   \textbf{\taskname~\thetask. (#1)} \itshape}{\medskip}
 \endinput
